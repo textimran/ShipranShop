@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Admin Panel</title>
+</head>
+<body>
+  <h2>Add New Product</h2>
+  <form onsubmit="addProduct(event)">
+    <input id="name" placeholder="Product Name" required><br>
+    <input id="price" placeholder="Price" type="number" required><br>
+    <input id="desc" placeholder="Description" required><br>
+    <input type="file" id="image" required><br>
+    <button>Add Product</button>
+  </form>
+
+  <script type="module" src="app.js"></script>
+</body>
+</html>
