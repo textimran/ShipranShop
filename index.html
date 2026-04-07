@@ -57,19 +57,18 @@
 <div class="products" id="product-list"></div>
 
 <script>
-  // আপনার পণ্যসমূহ এখানে যোগ করুন
   const products = [
     {
       name: "পণ্য ১",
       desc: "এটি প্রথম পণ্য",
       price: 100,
-      imageUrl: "https://via.placeholder.com/250"
+      imageUrl: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRndkLJFzGolnSx5iQwMPFLhk9GF-EvY2zC8Q&s"
     },
     {
       name: "পণ্য ২",
       desc: "এটি দ্বিতীয় পণ্য",
       price: 200,
-      imageUrl: "https://via.placeholder.com/250"
+      imageUrl: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRndkLJFzGolnSx5iQwMPFLhk9GF-EvY2zC8Q&s"
     }
   ];
 
@@ -84,7 +83,7 @@
       <h2>${product.name}</h2>
       <p>${product.desc}</p>
       <p>মূল্য: $${product.price}</p>
-      <a class="buy-btn" href="https://wa.me/1234567890?text=আমি%20এই%20পণ্য%20ক্রয়%20করতে%20চাই:%20${encodeURIComponent(product.name)}" target="_blank">Buy Now</a>
+      <a class="buy-btn" href="login.html" target="_blank">অর্ডার করতে লগইন করুন</a>
     `;
     container.appendChild(productDiv);
   });
