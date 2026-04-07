@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>ইকমার্স পেজ</title>
+    <title>আমার ইকমার্স পেজ</title>
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -48,144 +48,48 @@
             text-decoration: none;
             border-radius: 5px;
         }
-        /* অ্যাডমিন লগইন ফর্ম */
-        #admin-login {
-            max-width: 300px;
-            margin: 30px auto;
-            padding: 20px;
-            background: #fff;
-            border-radius: 8px;
-            box-shadow: 0 2px 5px rgba(0,0,0,0.2);
-        }
-        #admin-login h3 {
-            text-align: center;
-        }
-        #admin-login input {
-            width: 100%;
-            padding: 8px;
-            margin: 8px 0;
-            border-radius: 4px;
-            border: 1px solid #ccc;
-        }
-        #admin-login button {
-            width: 100%;
-            padding: 10px;
-            background-color: #007bff;
-            color: #fff;
-            border: none;
-            border-radius: 4px;
-            cursor: pointer;
-        }
-        #admin-section {
-            display: none;
-            margin-top: 20px;
-        }
-        #product-form {
-            display: flex;
-            flex-direction: column;
-        }
-        #product-form input {
-            margin: 5px 0;
-            padding: 8px;
-        }
-        #product-form button {
-            margin-top: 10px;
-            padding: 10px;
-            background-color: #28a745;
-            color: #fff;
-            border: none;
-            cursor: pointer;
-            border-radius: 4px;
-        }
     </style>
 </head>
 <body>
 
-<h1>আমার ইকমার্স পেজ</h1>
+<h1>আমার পণ্যসমূহ</h1>
 
 <div class="products" id="product-list">
     <!-- পণ্য এখানে দেখানো হবে -->
 </div>
 
-<!-- অ্যাডমিন লগইন ফর্ম -->
-<div id="admin-login">
-    <h3>অ্যাডমিন লোগিন</h3>
-    <input type="text" id="admin-username" placeholder="ইউজারনেম" />
-    <input type="password" id="admin-password" placeholder="পাসওয়ার্ড" />
-    <button onclick="adminLogin()">লগইন</button>
-</div>
-
-<!-- অ্যাডমিন অপশন ফর্ম -->
-<div id="admin-section">
-    <h3>নতুন পণ্য যোগ করুন</h3>
-    <form id="product-form" onsubmit="addProduct(event)">
-        <input type="text" id="product-name" placeholder="পণ্যের নাম" required />
-        <input type="text" id="product-desc" placeholder="বিবরণ" required />
-        <input type="number" id="product-price" placeholder="দাম" required />
-        <input type="text" id="product-image" placeholder="ছবির URL" required />
-        <button type="submit">পণ্য যোগ করুন</button>
-    </form>
-    <button onclick="logout()">বিদায়</button>
-</div>
-
 <script>
-    // অ্যাডমিন কনফিগারেশন
-    const adminUser = "admin"; // ইউজারনেম
-    const adminPass = "password"; // পাসওয়ার্ড
-    let isAdminLoggedIn = false;
-
-    const products = [];
-
-    function adminLogin() {
-        const username = document.getElementById('admin-username').value;
-        const password = document.getElementById('admin-password').value;
-        if (username === adminUser && password === adminPass) {
-            isAdminLoggedIn = true;
-            document.getElementById('admin-login').style.display = 'none';
-            document.getElementById('admin-section').style.display = 'block';
-            renderProducts();
-        } else {
-            alert('ভুল ইউজারনেম বা পাসওয়ার্ড');
+    const products = [
+        {
+            name: "পণ্য ১",
+            desc: "এটি প্রথম পণ্য",
+            price: ১০০,
+            imageUrl: "https://via.placeholder.com/250"
+        },
+        {
+            name: "পণ্য ২",
+            desc: "এটি দ্বিতীয় পণ্য",
+            price: ২০০,
+            imageUrl: "https://via.placeholder.com/250"
         }
-    }
+        // আরও পণ্য যোগ করুন এখানে
+    ];
 
-    function logout() {
-        isAdminLoggedIn = false;
-        document.getElementById('admin-login').style.display = 'block';
-        document.getElementById('admin-section').style.display = 'none';
-    }
+    const container = document.getElementById('product-list');
 
-    function addProduct(e) {
-        e.preventDefault();
-        const name = document.getElementById('product-name').value;
-        const desc = document.getElementById('product-desc').value;
-        const price = document.getElementById('product-price').value;
-        const imageUrl = document.getElementById('product-image').value;
+    products.forEach((product) => {
+        const productDiv = document.createElement('div');
+        productDiv.className = 'product';
 
-        const newProduct = { name, desc, price, imageUrl };
-        products.push(newProduct);
-        document.getElementById('product-form').reset();
-        renderProducts();
-    }
-
-    function renderProducts() {
-        const container = document.getElementById('product-list');
-        container.innerHTML = '';
-
-        products.forEach((product, index) => {
-            const productDiv = document.createElement('div');
-            productDiv.className = 'product';
-
-            productDiv.innerHTML = `
-                <img src="${product.imageUrl}" alt="${product.name}" />
-                <h2>${product.name}</h2>
-                <p>${product.desc}</p>
-                <p>মূল্য: $${product.price}</p>
-                <a class="buy-btn" href="https://wa.me/1234567890?text=আমি%20এই%20পণ্য%20ক্রয়%20করতে%20চাই:%20${encodeURIComponent(product.name)}" target="_blank">Buy Now</a>
-            `;
-            container.appendChild(productDiv);
-        });
-    }
+        productDiv.innerHTML = `
+            <img src="${product.imageUrl}" alt="${product.name}" />
+            <h2>${product.name}</h2>
+            <p>${product.desc}</p>
+            <p>মূল্য: $${product.price}</p>
+            <a class="buy-btn" href="https://wa.me/1234567890?text=আমি%20এই%20পণ্য%20ক্রয়%20করতে%20চাই:%20${encodeURIComponent(product.name)}" target="_blank">Buy Now</a>
+        `;
+        container.appendChild(productDiv);
+    });
 </script>
 
 </body>
