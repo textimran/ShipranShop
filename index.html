@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>Shipran Shop</title>
+<title>আমার পণ্যসমূহ</title>
 <!-- Google Fonts যোগ করুন -->
 <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet" />
 <style>
@@ -17,7 +17,7 @@
   header {
     background-color: #222;
     color: #fff;
-    padding: 10px 10px;
+    padding: 10px 40px; /* কম উচ্চতা */
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -25,16 +25,15 @@
 
   header h1 {
     margin: 0;
-    font-size: 2em;
+    font-size: 1.8em;
   }
 
   .shop-details {
-    margin-top: 10px;
+    margin-top: 8px;
     display: flex;
-    justify-content: space-around;
-    width: 100%;
-    max-width: 1000px;
+    justify-content: center;
     flex-wrap: wrap;
+    gap: 20px;
   }
 
   .shop-details div {
@@ -100,8 +99,8 @@
   footer {
     background-color: #222;
     color: #fff;
-    padding: 10px 10px;
-    margin-top: 10px;
+    padding: 10px 40px; /* কম উচ্চতা */
+    margin-top: 40px;
   }
 
   .payment-methods {
@@ -110,6 +109,7 @@
     align-items: center;
     gap: 30px;
     flex-wrap: wrap;
+    margin: 10px 0;
   }
 
   .payment-methods img {
@@ -120,7 +120,7 @@
 
   /* ওনারের নাম ও অন্যান্য তথ্য */
   .owner-info {
-    margin-top: 15px;
+    margin-top: 10px;
     text-align: center;
   }
 
@@ -133,15 +133,15 @@
 
 <!-- হেডার -->
 <header>
-  <h1>Shipran Shop</h1>
+  <h1>আমার অনলাইন শপ</h1>
   <div class="shop-details">
     <div>
-      <h3>Shipran Shop</h3>
-      <p>Dhaka,Bangladesh</p>
+      <h3>শপের নাম: আমার শপ</h3>
+      <p>ঠিকানা: ঢাকা, বাংলাদেশ</p>
     </div>
     <div>
-      <h3>Proprietor:Imran Hosain</h3>
-      <p>call:+8801318778325</p>
+      <h3>ওনারের নাম: জন ডো</h3>
+      <p>মোবাইল: +৮৮০১৩১৮৭৭৮৩২৫</p>
     </div>
   </div>
 </header>
@@ -152,7 +152,7 @@
 <!-- ফুটার -->
 <footer>
   <div class="owner-info">
-    <p>© Shipran Hub।</p>
+    <p>© ২০২৪ আমার শপ। সর্বস্বত্ব সংরক্ষিত।</p>
   </div>
   <div class="payment-methods">
     <img src="https://img.icons8.com/color/48/000000/bkash.png" alt="Bkash" title="Bkash" />
@@ -163,24 +163,16 @@
 
 <script>
   const products = [
-    {
-      name: "পণ্য ১",
-      desc: "এটি প্রথম পণ্য",
-      price: 100,
-      imageUrl: "https://via.placeholder.com/250"
-    },
-    {
-      name: "পণ্য ২",
-      desc: "এটি দ্বিতীয় পণ্য",
-      price: 200,
-      imageUrl: "https://via.placeholder.com/250"
-    },
-    {
-      name: "নতুন পণ্য",
-      desc: "এটি নতুন পণ্য",
-      price: 300,
-      imageUrl: "https://via.placeholder.com/250"
-    }
+    { name: "পণ্য ১", desc: "এটি প্রথম পণ্য", price: 100, imageUrl: "https://via.placeholder.com/250" },
+    { name: "পণ্য ২", desc: "এটি দ্বিতীয় পণ্য", price: 200, imageUrl: "https://via.placeholder.com/250" },
+    { name: "পণ্য ৩", desc: "এটি তৃতীয় পণ্য", price: 300, imageUrl: "https://via.placeholder.com/250" },
+    { name: "পণ্য ৪", desc: "এটি চতুর্থ পণ্য", price: 400, imageUrl: "https://via.placeholder.com/250" },
+    { name: "পণ্য ৫", desc: "এটি পঞ্চম পণ্য", price: 500, imageUrl: "https://via.placeholder.com/250" },
+    { name: "পণ্য ৬", desc: "এটি ষষ্ঠ পণ্য", price: 600, imageUrl: "https://via.placeholder.com/250" },
+    { name: "পণ্য ৭", desc: "এটি সপ্তম পণ্য", price: 700, imageUrl: "https://via.placeholder.com/250" },
+    { name: "পণ্য ৮", desc: "এটি অষ্টম পণ্য", price: 800, imageUrl: "https://via.placeholder.com/250" },
+    { name: "পণ্য ৯", desc: "এটি নবম পণ্য", price: 900, imageUrl: "https://via.placeholder.com/250" },
+    { name: "পণ্য ১০", desc: "এটি দশম পণ্য", price: 1000, imageUrl: "https://via.placeholder.com/250" }
   ];
 
   const container = document.getElementById('product-list');
